@@ -2,21 +2,20 @@ import os
 import tweepy
 import time
 import logging
-from dotenv import load_dotenv
 
 # API key
-API_KEY = os.getenv('API_KEY')
+api_key = os.getenv("API_KEY")
 # API secret key
-API_SECRET = os.getenv('API_SECRET')
+api_secret = os.getenv("API_SECRET")
 # Access token
-KEY = os.getenv('KEY')
+key = os.getenv("KEY")
 # Access token secret
-SECRET = os.getenv('SECRET')
+secret = os.getenv("SECRET")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
-auth = tweepy.OAuthHandler("API_KEY", "API_SECRET")
-auth.set_access_token("KEY", "SECRET")
+auth = tweepy.OAuthHandler(api_key, api_secret)
+auth.set_access_token(key, secret)
 
 api = tweepy.API(auth)
 

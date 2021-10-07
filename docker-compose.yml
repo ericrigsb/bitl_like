@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  bot:
+    env_file: .env
+    image: ericrigsb/pythonfeet
+    working_dir: /usr/src
+    volumes: 
+      - ./init.sh:/usr/src/init.sh
+    networks:
+      - host
+    command: bash -c "chmod a+x ./init.sh; ./init.sh"
+networks:
+  host:
