@@ -26,7 +26,7 @@ def favorite():
       try:
         api.create_favorite(tweet.id)
       except Exception as e:
-        logger.error("Error on retweet", exc_info=True)
+        logger.error("Error on like", exc_info=True)
 while True:
   favorite()
   time.sleep(900)
