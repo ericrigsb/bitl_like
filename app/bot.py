@@ -17,7 +17,7 @@ logger = logging.getLogger()
 auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(key, secret)
 
-api = tweepy.API(auth, wait_on_rate_limit=True)
+api = tweepy.API(auth)
 
 def favorite():
   for tweet in api.search_tweets(q="#beerleaguehockey", lang="en", result_type="recent", count=18):
@@ -29,3 +29,4 @@ def favorite():
         logger.error("Error on retweet", exc_info=True)
 while True:
   favorite()
+  time.sleep(900)
