@@ -17,7 +17,7 @@ logger = logging.getLogger()
 auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(key, secret)
 
-api = tweepy.API(auth)
+api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 
 def favorite():
   for tweet in api.search_tweets(q="#beerleaguehockey", lang="en", result_type="recent", count=18):
