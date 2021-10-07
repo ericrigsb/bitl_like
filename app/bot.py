@@ -14,6 +14,7 @@ secret = os.getenv("SECRET")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
+
 auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(key, secret)
 
