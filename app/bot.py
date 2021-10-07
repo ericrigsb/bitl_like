@@ -17,10 +17,10 @@ logger = logging.getLogger()
 auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(key, secret)
 
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
 def favorite():
-  for tweet in api.search_tweets(q="#beerleaguehockey", lang="en", result_type="recent", count=1):
+  for tweet in api.search_tweets(q="#beerleaguehockey", lang="en", result_type="recent", count=18):
     status = api.get_status(tweet.id, tweet_mode = 'extended')
     if not status.retweeted:  # Check if Retweet
       try:
