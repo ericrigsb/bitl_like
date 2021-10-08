@@ -2,6 +2,9 @@ import os
 import tweepy
 import time
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
 
 # API key
 api_key = os.getenv("API_KEY")
@@ -21,7 +24,7 @@ auth.set_access_token(key, secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
 
 def favorite():
-  for tweet in api.search_tweets(q="#beerleaguehockey", lang="en", result_type="recent", count=9):
+  for tweet in tweepy.Cursor(api.search_tweets, q="#beerleaguehockey", lang="en", result_type="recent").items(18):
     status = api.get_status(tweet.id, tweet_mode = 'extended')
     if not status.retweeted:  # Check if Retweet
       try:
