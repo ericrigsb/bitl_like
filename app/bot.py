@@ -1,4 +1,5 @@
 import os
+import time
 import tweepy
 import logging
 from dotenv import load_dotenv
@@ -38,5 +39,6 @@ def favorite():
           api.create_favorite(tweet.id)
         except Exception as e:
           logger.error("Error on like", exc_info=True)
-
-favorite()
+while True:
+  favorite()
+  time.sleep(900)
