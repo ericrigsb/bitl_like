@@ -3,7 +3,6 @@ services:
   bot:
     env_file: .env
     image: ericrigsb/pythonfeet
-    restart: always
     working_dir: /usr/src
     volumes: 
       - ./init.sh:/usr/src/init.sh
