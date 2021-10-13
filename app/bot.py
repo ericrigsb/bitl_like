@@ -42,3 +42,4 @@ def favorite():
 while True:
   favorite()
   time.sleep(86400)
+  print('See you tomorrow!')
