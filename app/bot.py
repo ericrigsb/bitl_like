@@ -41,4 +41,4 @@ def favorite():
           logger.error("Error on like", exc_info=True)
 while True:
   favorite()
-  time.sleep(900)
+  time.sleep(86400)
