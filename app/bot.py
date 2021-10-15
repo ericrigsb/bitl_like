@@ -32,7 +32,7 @@ def favorite():
   for hashtag in hashtags:
     for tweet in tweepy.Cursor(api.search_tweets, q=hashtag, lang="en", result_type="recent").items(18):
       status = api.get_status(tweet.id, tweet_mode = 'extended')
-      if not status.favorited:  # Check if already favorited
+      if not status.favorited or not status.retweet:  # Check if already favorited or retweet
         try:
           print('\nTweet by: @' + tweet.user.screen_name)
           print('\nTweet content: ' + tweet.text)
