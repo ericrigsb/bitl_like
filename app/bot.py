@@ -41,5 +41,5 @@ def favorite():
           logger.error("Error on like", exc_info=True)
 while True:
   favorite()
-  print('See you tomorrow!')
-  time.sleep(86400)
+  print('See you next time!')
+  time.sleep(43200)
