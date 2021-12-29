@@ -3,8 +3,13 @@ import time
 import tweepy
 import logging
 from dotenv import load_dotenv
+from datetime import datetime
 
-load_dotenv()  # take environment variables from .env.
+# Timestamp
+timestamp = datetime.now()
+
+# take environment variables from .env
+load_dotenv()
 
 # API key
 api_key = os.getenv("API_KEY")
@@ -41,5 +46,5 @@ def favorite():
           logger.error("Error on like", exc_info=True)
 while True:
   favorite()
-  print('See you next time!')
+  print('See you next time!',timestamp)
   time.sleep(43200)
